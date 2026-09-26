@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang='zh-CN'>
+<head>
+  <meta charset='utf-8' />
+  <meta name='viewport' content='width=device-width,initial-scale=1' />
+  <title>Virtual Journal Club</title>
+  <link rel='stylesheet' href='/style.css' />
+</head>
+<body>
+<main>
+  <header>
+    <div><h1>Virtual Journal Club</h1><p>你讲论文，AI 组员负责追问。</p></div>
+    <select id='mode'>
+      <option value='journal_club'>Journal Club</option>
+      <option value='presentation'>Presentation</option>
+      <option value='defense'>Defense</option>
+    </select>
+  </header>
+
+  <section class='card'>
+    <h2>1. 上传本周论文</h2>
+    <input id='pdf' type='file' accept='application/pdf' />
+    <button id='upload'>上传 PDF</button>
+    <span id='paperStatus'>尚未上传</span>
+  </section>
+
+  <section class='grid'>
+    <div class='card'>
+      <h2>2. 你来汇报</h2>
+      <textarea id='text' rows='9' placeholder='可以直接说，也可以输入：这篇文章首先提出……'></textarea>
+      <div class='row'>
+        <button id='mic'>🎙️ 开始语音</button>
+        <button id='send'>发送这一段</button>
+      </div>
+      <p class='hint'>Chrome/Edge 可直接使用浏览器语音识别。每讲完一个完整观点，再让 AI 追问。</p>
+    </div>
+    <div class='card'>
+      <h2>3. 组会讨论</h2>
+      <div id='chat'></div>
+    </div>
+  </section>
+
+  <section class='card'>
+    <button id='export'>生成 weekly_meeting.md</button>
+    <pre id='md'></pre>
+  </section>
+</main>
+<script src='/app.js'></script>
+</body>
+</html>
